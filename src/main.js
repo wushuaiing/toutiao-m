@@ -5,7 +5,7 @@ import store from './store'
 // 加载Vant组件库
 import Vant from 'vant'
 // 加载Vant全局样式
-import 'vant/lib/index.css'
+import 'vant/lib/index.less'
 // 加载全局样式
 import '@/style/index.less'
 // 加载动态设置 REM 基准值
