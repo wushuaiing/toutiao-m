@@ -11,7 +11,8 @@
     <!-- 通过 v-model 绑定当前激活标签对应的索引值，默认情况下启用第一个标签。 -->
     <van-tabs v-model="active" sticky offset-top="46px">
       <van-tab v-for="item in userChannel" :title="item.name" :key="item.id">
-        {{ item.name}}
+        <!-- 注意：Vue 官方建议在绑定 props 时，把“小驼峰”的属性名，改造成“短横线”的形式使用 -->
+        <art-list :id='item.id' class="art-list"></art-list>
       </van-tab>
     </van-tabs>
     <van-icon name="plus" size="16" class="plus" />
@@ -20,6 +21,7 @@
 
 <script>
 import { getUserChannelAPI } from '@/api/homeAPI.js'
+import ArtList from '@/components/ArtList/ArtList'
 export default {
   name: 'Home',
   data () {
@@ -35,6 +37,9 @@ export default {
         this.userChannel = res.data.channels
       }
     }
+  },
+  components: {
+    ArtList
   },
   created () {
     this.initUserChannel()
@@ -52,13 +57,14 @@ export default {
     position: fixed;
     top: 116px;
     right: 20px;
+    z-index: 999;
   }
 }
 // logo 样式
 .logo {
   height: 80%;
 }
-.van-tabs {
+/deep/.van-tabs__wrap {
   padding-right: 72px;
   background-color: white;
 }
