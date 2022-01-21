@@ -4,7 +4,7 @@
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh" :disabled="finished">
       <!-- :immediate-check="false" 属性，即可防止首次加载时触发 load 事件 -->
       <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad" :immediate-check="false">
-        <ArtItem v-for="item in artList" :key="item.id" :article="item"></ArtItem>
+        <ArtItem v-for="item in artList" :key="item.id" :article="item" @remove-article="removeArticle"></ArtItem>
       </van-list>
     </van-pull-refresh>
   </div>
@@ -50,12 +50,19 @@ export default {
     },
     onLoad () {
       // 异步更新数据
-      console.log('触发了上拉加载更多')
+      console.log(this.artList)
       this.initArtList()
     },
     onRefresh () {
       console.log('触发了下拉刷新')
       this.initArtList(true)
+    },
+    removeArticle (id) {
+      this.artList = this.artList.filter(item => item.art_id.toString() !== id)
+      if (this.artList.length < 10) {
+        // 主动请求下一页的数据
+        this.initArtList()
+      }
     }
   },
   created () {

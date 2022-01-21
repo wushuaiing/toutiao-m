@@ -12,7 +12,7 @@ request.interceptors.request.use(
     // 展示 loading 效果
     Toast.loading({
       message: '加载中...', // 文本内容
-      duration: 0 // 展示时长(ms)，值为 0 时，toast 不会消失
+      duration: 1000 // 展示时长(ms)，值为 0 时，toast 不会消失
     })
     return config
   },
