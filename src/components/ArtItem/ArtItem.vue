@@ -84,6 +84,7 @@ export default {
         console.log(this.flag)
       } else {
         this.show = false
+        this.flag = true
         console.log(this.flag)
       }
       // if (this.isFirst === false) {
