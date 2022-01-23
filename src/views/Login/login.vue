@@ -4,7 +4,7 @@
     <van-nav-bar class="page-nav-bar" title="头条 - 登录" fixed />
     <!-- 登录表单 -->
     <van-form @submit="login" :show-error-message=true class="login-form">
-      <van-field class="wuhsuai" v-model="user.mobile" name="手机号" label="手机号" clearable placeholder="请填写手机号" :rules="rules.mobile">
+      <van-field class="wuhsuai" v-model="user.mobile" name="手机号" label="手机号" clearable placeholder="请填写手机号" autocomplete="off" :rules="rules.mobile">
         <i slot="left-icon" class="iconfont icon-shouji" />
       </van-field>
       <van-field v-model="user.code" name="密码" type="password" required center clearable label="密码" placeholder="请输入密码" :rules="rules.code">
