@@ -9,7 +9,7 @@
       </template>
     </van-nav-bar>
     <!-- 通过 v-model 绑定当前激活标签对应的索引值，默认情况下启用第一个标签。 -->
-    <van-tabs v-model="active" sticky offset-top="46px">
+    <van-tabs v-model="active" sticky offset-top="48px">
       <van-tab v-for="item in userChannel" :title="item.name" :key="item.id">
         <!-- 注意：Vue 官方建议在绑定 props 时，把“小驼峰”的属性名，改造成“短横线”的形式使用 -->
         <art-list :id='item.id' class="art-list"></art-list>
@@ -155,7 +155,7 @@ export default {
   padding-bottom: 100px;
   .plus {
     position: fixed;
-    top: 116px;
+    top: 118px;
     right: 20px;
     z-index: 999;
   }

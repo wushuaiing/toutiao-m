@@ -14,7 +14,7 @@
       <!-- 使用 label 插槽来自定义标签 -->
       <template #label>
         <div class="label-box">
-          <span>作者{{article.aut_name}} &nbsp;&nbsp; {{article.comm_count}}评论 &nbsp;&nbsp; 发布时间&nbsp;{{article.pubdate | dateFormat}} </span>
+          <span>{{article.aut_name}} &nbsp;&nbsp; {{article.comm_count}}评论 &nbsp;&nbsp; 发布时间&nbsp;{{article.pubdate | dateFormat}} </span>
           <van-icon name="cross" @click="show = true" v-if="closable" />
         </div>
       </template>

@@ -86,7 +86,10 @@ export default {
     },
     // 搜索结果
     gotoSearchResult (e) {
-      console.log(e.currentTarget.innerText)
+      // e.currentTarget 是当正在触发事件的那个元素
+      // console.log(e.currentTarget.innerText)
+
+      // 1. 获取用户当前点击的搜索建议项的内容
       const value = e.currentTarget.innerText
       this.$router.push('/result/' + value)
     }

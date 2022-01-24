@@ -32,7 +32,9 @@ export default {
       if (res.message === 'OK') {
         this.searchList = [...this.searchList, ...res.data.results]
         this.loading = false
-        if (res.data.results.length === 0) { this.finished = true }
+        if (res.data.results.length === 0) {
+          this.finished = true
+        }
         this.page += 1
       }
     },
