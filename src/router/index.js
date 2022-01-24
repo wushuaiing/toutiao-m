@@ -4,6 +4,8 @@ import Login from '@/views/Login/login.vue'
 import Home from '@/views/Home/home.vue'
 import Main from '@/views/Main/Main.vue'
 import User from '@/views/User/user.vue'
+import Search from '@/views/Search/search.vue'
+import Result from '@/views/SearchResult/searchResult.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +23,17 @@ const routes = [
       { path: '', name: 'home', component: Home },
       { path: '/user', name: 'user', component: User }
     ]
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: Search
+  },
+  {
+    path: '/result/:value',
+    name: 'result',
+    component: Result,
+    props: true
   }
 ]
 

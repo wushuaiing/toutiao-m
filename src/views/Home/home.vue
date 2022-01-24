@@ -5,7 +5,7 @@
         <img src="@/assets/logo.png" alt="logo" class="logo">
       </template>
       <template #right>
-        <van-icon name="search" color="white" size="18" />
+        <van-icon name="search" color="white" size="18" @click="$router.push('/search')" />
       </template>
     </van-nav-bar>
     <!-- 通过 v-model 绑定当前激活标签对应的索引值，默认情况下启用第一个标签。 -->

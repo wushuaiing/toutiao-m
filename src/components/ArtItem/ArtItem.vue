@@ -15,7 +15,7 @@
       <template #label>
         <div class="label-box">
           <span>作者{{article.aut_name}} &nbsp;&nbsp; {{article.comm_count}}评论 &nbsp;&nbsp; 发布时间&nbsp;{{article.pubdate | dateFormat}} </span>
-          <van-icon name="cross" @click="show = true" />
+          <van-icon name="cross" @click="show = true" v-if="closable" />
         </div>
       </template>
     </van-cell>
@@ -42,6 +42,10 @@ export default {
     article: {
       type: Object,
       require: true
+    },
+    closable: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
