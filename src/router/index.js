@@ -6,6 +6,7 @@ import Main from '@/views/Main/Main.vue'
 import User from '@/views/User/user.vue'
 import Search from '@/views/Search/search.vue'
 import Result from '@/views/SearchResult/searchResult.vue'
+import ArticleDetail from '@/views/ArticleDetail/articleDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,12 @@ const routes = [
     path: '/result/:value',
     name: 'result',
     component: Result,
+    props: true
+  },
+  {
+    path: '/article/:id',
+    name: 'article',
+    component: ArticleDetail,
     props: true
   }
 ]
