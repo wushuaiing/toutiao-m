@@ -30,12 +30,14 @@
         <van-button icon="good-job-o" plain type="danger" size="mini" v-else @click="onLike">点赞</van-button>
       </div>
     </div>
+    <ArtCmt :artId='id'></ArtCmt>
   </div>
 </template>
 
 <script>
 import { getArticleDetailAPI, followUserAPI, deleteFollowAPI, addLikeAPI, dislikeAPI } from '@/api/articleAPI.js'
 import { ImagePreview } from 'vant'
+import ArtCmt from '@/components/ArtCmt/artCmt'
 // ImagePreview({
 //   images: [
 //     'https://img01.yzcdn.cn/vant/apple-1.jpg',
@@ -51,6 +53,9 @@ export default {
     }
   },
   props: ['id'],
+  components: {
+    ArtCmt
+  },
   methods: {
     async initArticle () {
       try {
@@ -103,8 +108,11 @@ export default {
     async onLike () {
       try {
         if (this.article.is_collected) {
-          await dislikeAPI(this.id)
-          this.$toast.success('取消点赞成功！！')
+          const res = await dislikeAPI(this.id)
+          if (res.status === 204) {
+            // 提示用户
+            this.$toast.success('取消点赞成功！')
+          }
         } else {
           await addLikeAPI(this.id)
           this.$toast.success('点赞成功！')
